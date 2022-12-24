@@ -1,6 +1,6 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
-
+getgenv().TPPlace = "string"
 
 _G.AutoHealth = true
 _G.AutoStamina = true
@@ -57,7 +57,10 @@ wait(.00000000000000000000000000000000000000000000000000000000000000000000000000
   end
 end
 
-
+function Teleport(TeleportPlace)
+   local player = game.Players.LocalPlayer
+   player.Character.HumanoidRootPart.CFrame = TeleportPlace
+end
 
 
 
@@ -185,3 +188,25 @@ local Section = Credits:CreateSection("Credits")
 
 local Label = Credits:CreateLabel("Owner Fokor113")
 local Label = Credits:CreateLabel("Devolper hackeded19")
+
+
+local Dropdown = Cobra:CreateDropdown({
+	Name = "Select Area",
+	Options = {"Dojo","Safe zone"},
+	CurrentOption = "Dojo",
+	Flag = "Dropdown1",
+	Callback = function(Value)
+	  	getgenv().TPPlace = Value
+	end,
+})
+
+local Button = Cobra:CreateButton({
+	Name = "Teleport",
+	Callback = function()
+        if getgenv().TPPlace == "Dojo" then
+       Teleport(game:GetService("Workspace").Dojo.Door.CFrame)
+        elseif getgenv().TPPlace == "Safe zone" then
+            Teleport(game:GetService("Workspace").SafeZone.CFrame)
+	end
+end
+})
