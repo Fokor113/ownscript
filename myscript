@@ -1,0 +1,72 @@
+
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "Cobra kai | Fokor113", HidePremium = false, SaveConfig = true, ConfigFolder = "Cobra kai"})
+   
+
+--Values
+_G.AutoHealth = true
+_G.AutoStrength = true
+
+
+
+--Functions
+
+function AutoHealth()
+    while _G.AutoHealth == true do
+    game:GetService("ReplicatedStorage").Remotes.PushUp:FireServer()
+    wait(.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+  end
+end
+
+function AutoStrength()
+    while _G.AutoStrength == true do
+local args = {
+    [1] = 1
+}
+
+game:GetService("ReplicatedStorage").Attack:FireServer(unpack(args))
+wait(.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+   end
+end
+
+
+
+
+
+    local FarmTab = Window:MakeTab({
+        Name = "Farm",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    FarmTab:AddToggle({
+        Name = "AutoHealth",
+        Default = false,
+        Callback = function(Value)
+           _G.AutoHealth = Value
+           AutoHealth()
+        end    
+    })
+
+
+    FarmTab:AddDropdown({
+        Name = "AutoHealth",
+        Default = "Legit farm",
+        Options = {"beanch-gamepass", "Normal"},
+        Callback = function(Value)
+            game:GetService("ReplicatedStorage").Remotes.Bench:FireServer()
+
+        end    
+    })
+
+
+    FarmTab:AddToggle({
+        Name = "Strength",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoStrength = Value
+           AutoStrength()
+        end    
+    })
+    
+    OrionLib:Init()
