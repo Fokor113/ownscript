@@ -14,6 +14,7 @@
 _G.AutoHealth = true
 _G.AutoStrength = true
 _G.AutoStamina = true
+_G.AutoHandell = true
 
 
 
@@ -46,6 +47,17 @@ function AutoStamina()
     end
 end
 
+function AutoHandell()
+    while _G.AutoHandell == true do
+    local args = {
+        [1] = "Rep",
+        [2] = 1
+    }
+    
+    game:GetService("ReplicatedStorage").Remotes.Dumbell:FireServer(unpack(args))
+    wait(.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+   end
+end   
 
 
 
@@ -96,6 +108,15 @@ end
         Callback = function(Value)
             _G.AutoStamina = Value
            AutoStamina()
+        end    
+    })
+
+    FarmTab:AddToggle({
+        Name = "Dumbell",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoHandell = Value
+           AutoHandell()
         end    
     })
 
