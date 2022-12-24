@@ -134,4 +134,4 @@ local Credits = Window:CreateTab("Credits", 4483362458) -- Title, Image
 local Section = Credits:CreateSection("Credits")
 
 local Label = Credits:CreateLabel("Owner Fokor113")
-local Label = Credits:CreateLabel("Devolper and Tester hackeded19")
+local Label = Credits:CreateLabel("Devolper hackeded19")
