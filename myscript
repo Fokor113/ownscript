@@ -1,25 +1,11 @@
-
-    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-    local Window = OrionLib:MakeWindow({Name = "Cobra kai | Fokor113", HidePremium = false, SaveConfig = true, ConfigFolder = "Cobra kai"})
-   
-    OrionLib:MakeNotification({
-        Name = "Check your user!",
-        Content = "Connected NONPremium...",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
 
---Values
 _G.AutoHealth = true
-_G.AutoStrength = true
 _G.AutoStamina = true
 _G.AutoHandell = true
+_G.AutoStrength = true
 
-
-
-
---Functions
 
 function AutoHealth()
     while _G.AutoHealth == true do
@@ -28,16 +14,6 @@ function AutoHealth()
   end
 end
 
-function AutoStrength()
-    while _G.AutoStrength == true do
-local args = {
-    [1] = 1
-}
-
-game:GetService("ReplicatedStorage").Attack:FireServer(unpack(args))
-wait(.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
-   end
-end
 
 function AutoStamina()
     while _G.AutoStamina == true do
@@ -46,6 +22,7 @@ function AutoStamina()
 
     end
 end
+
 
 function AutoHandell()
     while _G.AutoHandell == true do
@@ -60,77 +37,101 @@ function AutoHandell()
 end   
 
 
+function AutoStrength()
+    while _G.AutoStrength == true do
+local args = {
+    [1] = 1
+}
+
+game:GetService("ReplicatedStorage").Attack:FireServer(unpack(args))
+wait(.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+   end
+end
 
 
 
 
 
-    local FarmTab = Window:MakeTab({
-        Name = "Farm",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
 
-    FarmTab:AddToggle({
-        Name = "AutoHealth",
-        Default = false,
-        Callback = function(Value)
-           _G.AutoHealth = Value
-           AutoHealth()
-        end    
-    })
-
-
-    FarmTab:AddDropdown({
-        Name = "AutoHealth",
-        Default = "Legit farm",
-        Options = {"beanch-gamepass", "Normal"},
-        Callback = function(Value)
-            game:GetService("ReplicatedStorage").Remotes.Bench:FireServer()
-
-        end    
-    })
-
-
-    FarmTab:AddToggle({
-        Name = "Strength",
-        Default = false,
-        Callback = function(Value)
-            _G.AutoStrength = Value
-           AutoStrength()
-        end    
-    })
-    
-
-    FarmTab:AddToggle({
-        Name = "Stamina",
-        Default = false,
-        Callback = function(Value)
-            _G.AutoStamina = Value
-           AutoStamina()
-        end    
-    })
-
-    FarmTab:AddToggle({
-        Name = "Dumbell",
-        Default = false,
-        Callback = function(Value)
-            _G.AutoHandell = Value
-           AutoHandell()
-        end    
-    })
-
-    local Credits = Window:MakeTab({
-        Name = "Credits",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    Credits:AddLabel("Owner Fokor113#5948")
-    Credits:AddLabel("Tester hackeded19")
+local Window = Rayfield:CreateWindow({
+	Name = "Cobra Kai Karate",
+	LoadingTitle = "Succes Loaded",
+	LoadingSubtitle = "by Fokor113",
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = myscrit,
+		FileName = "Cobra Kai Karate"
+	},
+        Discord = {
+        	Enabled = true,
+        	Invite = "RZyKTVnJ9Y", -- The Discord invite code, do not include discord.gg/
+        	RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+        },
+	KeySystem = true, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "Cobra Kai Karate",
+		Subtitle = "Key System",
+		Note = "Join the discord (https://discord.gg/RZyKTVnJ9Y)",
+		FileName = "myscrit",
+		SaveKey = true,
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = "&213MVFokor113822BxJV1"
+	}
+})
 
 
+local Cobra = Window:CreateTab("AutoFarm Cobra kai", 4483362458) -- Title, Image
+local Section = Cobra:CreateSection("Cobra Kai Karate AutoFarm")
+
+local Toggle = Cobra:CreateToggle({
+	Name = "Health",
+	CurrentValue = false,
+	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.AutoHealth = Value
+           AutoHealth()-- The function that takes place when the toggle is pressed
+    		-- The variable (Value) is a boolean on whether the toggle is true or false
+	end,
+})
+
+local Toggle = Cobra:CreateToggle({
+	Name = "Stamina",
+	CurrentValue = false,
+	Flag = "Toggle2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.AutoStamina = Value
+           AutoStamina()-- The function that takes place when the toggle is pressed
+    		-- The variable (Value) is a boolean on whether the toggle is true or false
+	end,
+})
 
 
+local Toggle = Cobra:CreateToggle({
+	Name = "Dumbell",
+	CurrentValue = false,
+	Flag = "Toggle3", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.AutoHandell = Value
+           AutoHandell()-- The function that takes place when the toggle is pressed
+    		-- The variable (Value) is a boolean on whether the toggle is true or false
+	end,
+})
 
-    OrionLib:Init()
+
+local Toggle = Cobra:CreateToggle({
+	Name = "Strengh",
+	CurrentValue = false,
+	Flag = "Toggle4", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+	Callback = function(Value)
+		_G.AutoStrength = Value
+           AutoStrength()-- The function that takes place when the toggle is pressed
+    		-- The variable (Value) is a boolean on whether the toggle is true or false
+	end,
+})
+
+
+local Credits = Window:CreateTab("Credits", 4483362458) -- Title, Image
+local Section = Credits:CreateSection("Credits")
+
+local Label = Credits:CreateLabel("Owner Fokor113")
+local Label = Credits:CreateLabel("Devolper and Tester hackeded19")
