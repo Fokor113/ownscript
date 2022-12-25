@@ -16,6 +16,22 @@ Rayfield:Notify({
 })
 
 
+Rayfield:Notify({
+    Title = "System Error | 597 | can't loading",
+    Content = " Please call to Devolper or Owner to fix you hub",
+    Duration = 50.0,
+    Image = 4483362458,
+    Actions = { -- Notification Buttons
+        Ignore = {
+            Name = "Okay!",
+            Callback = function()
+                print("The user tapped Okay!")
+            end
+		},
+	},
+})
+
+
 
 
 
