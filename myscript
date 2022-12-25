@@ -321,32 +321,10 @@ local Button = Credits:CreateButton({
 	Name = "Discord",
 	Callback = function()
 		Rayfield:Notify({
-			Title = "Discord",
-			Content = "Fokor113#5948 | XxGamingxX_TOMK#0433 | Nah#9625",
-			Duration = 50.5,
+			Title = "System Error | 597 | can't loading",
+			Content = " Please call to Devolper or Owner to fix you hub",
+			Duration = 50.0,
 			Image = 4483362458,
-			Actions = { -- Notification Buttons
-				Ignore = {
-					Name = "Thanks",
-					Callback = function()
-						print("The user tapped Thanks")
-					end
-				},
-			},
-		})
-	end,
-})
-
-
-
-local Button = Cobra:CreateButton({
-	Name = "Hit Aura",
-	Callback = function()
-		Rayfield:Notify({
-			Title = "Error 106 | Update",
-			Content = "Please wait for Update",
-			Duration = 6.5,
-			Image = 57248129,
 			Actions = { -- Notification Buttons
 				Ignore = {
 					Name = "Okay!",
@@ -355,7 +333,29 @@ local Button = Cobra:CreateButton({
 					end
 				},
 			},
-		})	
+		})
+})
+
+
+
+local Button = Cobra:CreateButton({
+	Name = "Hit Aura",
+	Callback = function()
+		Rayfield:Notify({
+			Title = "System Error | 597 | can't loading",
+			Content = " Please call to Devolper or Owner to fix you hub",
+			Duration = 50.0,
+			Image = 4483362458,
+			Actions = { -- Notification Buttons
+				Ignore = {
+					Name = "Okay!",
+					Callback = function()
+						print("The user tapped Okay!")
+					end
+				},
+			},
+		})
+				
 	end			
 			
 		
@@ -367,9 +367,9 @@ local Button = Cobra:CreateButton({
 	Name = "Anti hit",
 	Callback = function()
 		Rayfield:Notify({
-			Title = "Error 106 | Update",
-			Content = "Wait for next update",
-			Duration = 6.5,
+			Title = "System Error | 597 | can't loading",
+			Content = " Please call to Devolper or Owner to fix you hub",
+			Duration = 50.0,
 			Image = 4483362458,
 			Actions = { -- Notification Buttons
 				Ignore = {
@@ -388,9 +388,9 @@ local Button = Cobra:CreateButton({
 	Name = "kill aura",
 	Callback = function()
 		Rayfield:Notify({
-			Title = "Error 106 | Update",
-			Content = "wait for next update",
-			Duration = 6.5,
+			Title = "System Error | 597 | can't loading",
+			Content = " Please call to Devolper or Owner to fix you hub",
+			Duration = 50.0,
 			Image = 4483362458,
 			Actions = { -- Notification Buttons
 				Ignore = {
@@ -401,5 +401,4 @@ local Button = Cobra:CreateButton({
 				},
 			},
 		})
-	end,
 })
