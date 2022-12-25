@@ -366,10 +366,20 @@ local Button = Cobra:CreateButton({
 local Button = Cobra:CreateButton({
 	Name = "Anti hit",
 	Callback = function()
+		if humanoid then
+			DamageEvent:FireServer(humanoid)
+	   end
+	end,
+})
+
+
+local Button = Cobra:CreateButton({
+	Name = "kill aura",
+	Callback = function()
 		Rayfield:Notify({
-			Title = "System Error | 597 | can't loading",
-			Content = " Please call to Devolper or Owner to fix you hub",
-			Duration = 50.0,
+			Title = "Error 109 | can't load ",
+			Content = "call to devolper or owner",
+			Duration = 6.5,
 			Image = 4483362458,
 			Actions = { -- Notification Buttons
 				Ignore = {
@@ -384,21 +394,11 @@ local Button = Cobra:CreateButton({
 })
 
 
-local Button = Cobra:CreateButton({
-	Name = "kill aura",
-	Callback = function()
-		Rayfield:Notify({
-			Title = "System Error | 597 | can't loading",
-			Content = " Please call to Devolper or Owner to fix you hub",
-			Duration = 50.0,
-			Image = 4483362458,
-			Actions = { -- Notification Buttons
-				Ignore = {
-					Name = "Okay!",
-					Callback = function()
-						print("The user tapped Okay!")
-					end
-				},
-			},
-		})
+local Input = Player:CreateInput({
+	Name = "Teleport to",
+	PlaceholderText = "Username",
+	RemoveTextAfterFocusLost = false,
+	Callback = function(Text)
+		loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Teleport%20To%20Player.txt"))()
+	end,
 })
